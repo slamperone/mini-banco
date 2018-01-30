@@ -1,7 +1,7 @@
 <?php
 Class Login extends CI_Model
 {
- function login($mail, $pin)
+ function serchUsr($mail, $pin)
  {
    $this -> db -> select('*');
    $this -> db -> from('usuarios');

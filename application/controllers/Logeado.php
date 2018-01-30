@@ -4,7 +4,7 @@ class Logeado extends CI_Controller {
 
 
  function index(){
-   $this->load->model('user','',TRUE);
+   $this->load->model('login','',TRUE);
    $this->load->library('form_validation');
    $this->form_validation->set_message('required', 'El campo {field} es obligatorio');
    $this->form_validation->set_message('min_length', '{field} debe contener almenos {param} caracteres');
@@ -23,7 +23,7 @@ class Logeado extends CI_Controller {
  function check_database($pin){
    $mail = $this->input->post('correo');
 
-   $result = $this->user->login($mail, $pin);
+   $result = $this->login->serchUsr($mail, $pin);
 
    if($result){
      $sess_array = array();
