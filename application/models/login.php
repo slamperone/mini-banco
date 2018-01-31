@@ -2,6 +2,7 @@
 Class Login extends CI_Model
 {
  function serchUsr($mail, $pin)
+ function serchUsr($mail)
  {
    $this -> db -> select('*');
    $this -> db -> from('usuarios');
@@ -19,6 +20,12 @@ Class Login extends CI_Model
    {
      return false;
    }
+       if($query -> num_rows() == 1)
+       {
+         return $query->result();
+       }else{
+         return false;
+       }
  }
 }
 ?>

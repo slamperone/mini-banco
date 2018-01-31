@@ -72,10 +72,11 @@
                 </section>
                 <!-- content -->
                 <?= CI_VERSION; ?>
+                <?= "CI version: ".CI_VERSION; ?>
             </div>
         </div>
     </div>
 
 </body>
 
-</html>
+</html></html></html>
