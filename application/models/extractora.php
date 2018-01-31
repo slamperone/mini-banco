@@ -1,5 +1,5 @@
 <?php
-Class Extractoraora extends CI_Model{
+Class Extractora extends CI_Model{
 
  function usuario($cual){
   $this->db->select('*');

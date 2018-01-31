@@ -37,10 +37,7 @@
 </head>
 
 <body style="background:#F7F7F7;">
-
     <div class="">
-
-
         <div id="wrapper">
             <div id="login" class="animate form">
                 <section class="login_content">
@@ -71,7 +68,6 @@
                     <!-- form -->
                 </section>
                 <!-- content -->
-                <?= CI_VERSION; ?>
                 <?= "CI version: ".CI_VERSION; ?>
             </div>
         </div>
@@ -79,4 +75,4 @@
 
 </body>
 
-</html></html></html>
+</html>
