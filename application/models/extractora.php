@@ -1,7 +1,7 @@
 <?php
 Class Extractora extends CI_Model{
 
- function usuario($cual){
+ function cliente($cual){
   $this->db->select('*');
   $this->db->from('usuarios');
   $this->db->where('idUsuario',$cual);
@@ -17,61 +17,10 @@ $query = $this->db->get();
    }
  }
 
- function usuarios($cuales){
-  $this->db->select('*');
-  $this->db->from('usuarios');
-  $this->db->where('rol',$cuales);
-  //$this->db->join('roles','roles.idRol = usuarios.rol');
-  $this -> db -> limit(1);
-
+ function clientes(){
+  $this->db->select('idCliente,nombres,apellidos,mail,registro');
+  $this->db->from('clientes');
 $query = $this->db->get();
-
-   if($query -> num_rows() >= 1){
-     return $query->result();
-   }else{
-     return false;
-   }
- }
-
-
- function saldo($quien){
-  $this->db->select('usuarios.nombres,usuarios.apellidos,cuentas.saldo');
-  $this->db->from('usuarios');
-  $this->db->where('usuarios.idUsuario',$quien);
-  $this->db->join('cuentas','cuentas.idUsuario = usuarios.idUsuario');
-
-$query = $this->db->get();
-
-   if($query -> num_rows() >= 1){
-     return $query->result();
-   }else{
-     return false;
-   }
- }
-
- function movimientos($quien){
-  $this->db->select('usuarios.nombres,usuarios.apellidos,movimientos.idMovimiento,movimientos.comercio,movimientos.detalle,movimientos.monto,movimientos.registro');
-  $this->db->from('usuarios');
-  $this->db->where('usuarios.idUsuario',$quien);
-  $this->db->join('movimientos','movimientos.idUsuario = usuarios.idUsuario');
-
-$query = $this->db->get();
-
-   if($query -> num_rows() >= 1){
-     return $query->result();
-   }else{
-     return false;
-   }
- }
-
-  function cuentas($quien){
-  $this->db->select('usuarios.nombres,usuarios.apellidos,cuentas.idCuenta');
-  $this->db->from('usuarios');
-  $this->db->where('usuarios.idUsuario',$quien);
-  $this->db->join('cuentas','cuentas.idUsuario = usuarios.idUsuario');
-
-$query = $this->db->get();
-
    if($query -> num_rows() >= 1){
      return $query->result();
    }else{

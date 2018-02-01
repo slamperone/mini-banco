@@ -3,56 +3,58 @@ class Ver extends CI_Controller {
 
  function __construct(){
    parent::__construct();
-   date_default_timezone_set('America/Mexico_City');
-   $this->load->model('sacadora');
+   $this->load->model('extractora');
 
  }
+
+ /**
+  * [Revisa que el usuario tenha una session valida y activa]
+  * @return [boolean] [Es todo es correcto, devuelve true sino redirect al login]
+  */
    public  function checaSesion(){
-  if($this->session->userdata('logged_in')){
+  if($this->session->userdata('logged_in')){#tiene permiso
      $this->session_data = $this->session->userdata('logged_in');
      $this->data['datosUsuario'] = $this->session_data;
      return TRUE;
-   }else{
-     //If no session, redirect to login page
-     redirect('login', 'refresh');
+   }else{#le pide logearse
+          redirect('login', 'refresh');
    }
  }
-
+/**
+ * [lo rediride al dashboard]
+ * @return [nada] [nada]
+ */
  function index(){
   redirect('dashboard', 'refresh');
  }
 
-   function saldo($quien){
-if ($this->checaSesion()) {
-    if ($quien == 'all' || $quien == NULL) {
 
-    $this->data['users']=$this->sacadora->usuarios(3);
-    $this->data['titulo']= 'Clientes registrados';
-    $this->load->view('verAlumnos', $this->data);
+     function cliente($quien){
+    if ($this->checaSesion()) {
 
-    }else{
-      $this->data['datos'] = $this->sacadora->saldo($quien);
-  $this->data['titulo']= 'Detalle de Saldo';
-  $this->load->view('dashVacio', $this->data);
+      if (is_numeric($quien)) {
+        $this->data['datos'] = $this->extractora->cliente($quien);
+        $this->data['titulo']= 'Detalle del cliente';
+        $this->load->view('verClientes', $this->data);
+      }else if ($quien == 'all'){
+        $this->data['datos'] = $this->extractora->clientes();
+        $this->data['titulo']= 'Nuestros clientes';
+        $this->load->view('verClientes', $this->data);
+      }else{
+        show_404();
+      }
+
     }
 }
- }
 
-    function movimientos($quien){
-if ($this->checaSesion()) {
-  $this->data['datos'] = $this->sacadora->movimientos($quien);
-  $this->data['titulo']= 'Detalle de Movimientos';
-  $this->load->view('dashVacio', $this->data);
-}
- }
 
-    function cuentas($quien){
-if ($this->checaSesion()) {
-  $this->data['datos'] = $this->sacadora->cuentas($quien);
-  $this->data['titulo']= 'Detalle de cuentas';
-  $this->load->view('dashVacio', $this->data);
+    function usuario($quien){
+    if ($this->checaSesion()) {
+    $this->data['datos'] = $this->extractora->cuentas($quien);
+    $this->data['titulo']= ($quien == 'all')?'Colaboradores de Bancotote':'Detalle del colaborador';
+    $this->load->view('dashVacio', $this->data);
+    }
 }
- }
 
 
 }#cierra la clase

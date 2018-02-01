@@ -29,6 +29,15 @@ class Captura extends CI_Controller {
       }
  }
 
+ function usuario($queFue){
+      if ($this->checaSesion()) {
+        $this->load->model('extractora');
+        $this->data['roles'] = $this->extractora->roles();
+        $this->data['que'] = $queFue;
+        $this->load->view('capturaUser', $this->data);
+      }
+ }
+
  function deposito($queFue){
       if ($this->checaSesion()) {
         #aqiu debería ir el llamado a la vista que captura los depositos

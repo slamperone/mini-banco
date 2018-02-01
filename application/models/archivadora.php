@@ -31,12 +31,12 @@ Class Archivadora extends CI_Model{
 
 		function cliente($data){
 #no se puede registrar el mismo cliente do veces, si quiere mas de u na cuenta se usa la tabla cuentas
-			if($this->db->get_where('usuarios', array('correo' => $data['correo']))->num_rows()>=1) {
+			if($this->db->get_where('clientes', array('mail' => $data['mail']))->num_rows()>=1) {
 				return '2';
 				exit;
 			}else{
 
-				if ($this->db->insert('usuarios', $data)){
+				if ($this->db->insert('clientes', $data)){
 					return '3';
 					exit;
 				}else{

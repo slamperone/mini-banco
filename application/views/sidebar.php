@@ -9,13 +9,15 @@
                                 <li><a><i class="fa fa-folder-open"></i> Registro <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
                                         <li><a href="<?= base_url('captura/cliente/new') ?>">Cliente</a></li>
+                                        <li><a href="<?= base_url('captura/usuario/new') ?>">Usuario</a></li>
                                         <li><a href="<?= base_url('captura/deposito/new') ?>">Deposito</a></li>
                                     </ul>
                                 </li>
 
                                 <li><a><i class="fa fa-rocket"></i> Consultar <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="<?= base_url('ver/saldo/all') ?>">Detalle Cliente</a></li>
+                                        <li><a href="<?= base_url('ver/usuario/all') ?>">Usuarios</a></li>
+                                        <li><a href="<?= base_url('ver/cliente/all') ?>">Clientes</a></li>
                                     </ul>
                                 </li>
 

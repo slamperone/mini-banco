@@ -22,7 +22,7 @@
                             <div class="x_panel">
                                 <div class="x_content">
 
-                                    <form action="<?php echo base_url('guarda/cliente');  ?>" method="POST" class="form-horizontal form-label-left" novalidate onkeypress="return anular(event)>
+                                    <form action="<?php echo base_url('guarda/user');  ?>" method="POST" class="form-horizontal form-label-left" novalidate onkeypress="return anular(event)>
                                         <span class="section">Infomacion personal</span>
 
                                         <?php
@@ -48,6 +48,13 @@
                                         }
 
                                         ?>
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nickname  <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input class="form-control col-md-7 col-xs-12" data-validate-length-range="4" name="nick" placeholder="Nombre de usuario" required="required" type="text" value="">
+                                            </div>
+                                        </div>
 
                                         <div class="item form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nombre(s)  <span class="required">*</span>
@@ -87,33 +94,38 @@
                                             </div>
                                         </div>
 
-                                        <div class="item multi required form-group">
-                                           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="multi_first">Tarjeta
-                                             <span class="required">*</span>
-                                           </label>
-                                           <div class="col-md-6 col-sm-6 col-xs-12 input">
-
-                                               <input type="text" name="tar1" class="form-control tarjeta-input" maxlength='4' minlength='4' id="multi_first">
-
-                                               <input type="text" name="tar2" class="form-control tarjeta-input" maxlength='4' minlength='4'>
-
-                                               <input type="text" name="tar3" class="form-control tarjeta-input" maxlength='4' minlength='4'>
-
-                                               <input type="text" name="tar4" class="form-control tarjeta-input" maxlength='4' minlength='4'>
-
-                                               <input data-validate-length-range="16" id="serial" name="serial" required="required" type="hidden">
-
-                                           </div>
-                                       </div>
-
-
-
                                         <div class="item form-group">
                                             <label for="tel" class="control-label col-md-3 col-sm-3 col-xs-12">Teléfono</label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="text" name="tel" data-validate-length-range="10" class="form-control col-md-7 col-xs-12" required="required" placeholder="55 5859 5550">
+                                                <input type="text" name="tel" data-validate-length-range="8" class="form-control col-md-7 col-xs-12" required="required" placeholder="5859 5550">
                                             </div>
                                         </div>
+
+                                        <div class="item form-group">
+                                            <label for="tel" class="control-label col-md-3 col-sm-3 col-xs-12">Calular</label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="text" name="cel" data-validate-length-range="10" class="form-control col-md-7 col-xs-12" required="required" placeholder="55 5859 5550">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group item">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Rol de usuario</label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <select class="required form-control" name="rol" data-validate-minmax="1,10" required='required'>
+                                                    <option value="">-- Selcciona una --</option>
+                                                    <?php foreach ($roles as $rol):?>
+                                                    <option value="<?= $rol->idRol;?>">
+                                                    <?= $rol->rol;?>
+                                                  </option>
+                                                <?php endforeach; ?>
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+
+
+
                                         <div class="ln_solid"></div>
                                         <div class="form-group">
                                             <div class="col-md-6 col-md-offset-3">
