@@ -8,14 +8,14 @@
                             <ul class="nav side-menu">
                                 <li><a><i class="fa fa-folder-open"></i> Registro <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="<?= site_url('captura/cliente/new') ?>">Cliente</a></li>
-                                        <li><a href="<?= site_url('captura/deposito/new') ?>">Deposito</a></li>
+                                        <li><a href="<?= base_url('captura/cliente/new') ?>">Cliente</a></li>
+                                        <li><a href="<?= base_url('captura/deposito/new') ?>">Deposito</a></li>
                                     </ul>
                                 </li>
 
                                 <li><a><i class="fa fa-rocket"></i> Consultar <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="<?= site_url('ver/saldo/all') ?>">Detalle Cliente</a></li>
+                                        <li><a href="<?= base_url('ver/saldo/all') ?>">Detalle Cliente</a></li>
                                     </ul>
                                 </li>
 
@@ -45,12 +45,12 @@
                                     <span class=" fa fa-angle-down"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
-                                    <li><a href="<?= site_url('ver/detalle/'.$datosUsuario['id']); ?>">Perfil</a>
+                                    <li><a href="<?= base_url('ver/detalle/'.$datosUsuario['id']); ?>">Perfil</a>
                                     </li>
                                     <!--li>
                                         <a href="javascript:;">Help</a>
                                     </li-->
-                                    <li><a href="<?= site_url('dashboard/logout'); ?>"><i class="fa fa-sign-out pull-right"></i>Salir</a>
+                                    <li><a href="<?= base_url('dashboard/logout'); ?>"><i class="fa fa-sign-out pull-right"></i>Salir</a>
                                     </li>
                                 </ul>
                             </li>

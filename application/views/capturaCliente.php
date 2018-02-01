@@ -22,7 +22,7 @@
                             <div class="x_panel">
                                 <div class="x_content">
 
-                                    <form action="<?php echo site_url('guarda/user');  ?>" method="POST" class="form-horizontal form-label-left" novalidate onkeypress="return anular(event)>
+                                    <form action="<?php echo base_url('guarda/cliente');  ?>" method="POST" class="form-horizontal form-label-left" novalidate onkeypress="return anular(event)>
                                         <span class="section">Infomacion personal</span>
 
                                         <?php
@@ -87,23 +87,21 @@
                                             </div>
                                         </div>
 
-
-
-                                        <div class="field multi required form-group">
+                                        <div class="item multi required form-group">
                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="multi_first">Tarjeta
                                              <span class="required">*</span>
                                            </label>
                                            <div class="col-md-6 col-sm-6 col-xs-12 input">
 
-                                               <input type="text" name="tar1" class="form-control tarjeta-input" id="multi_first">
+                                               <input type="text" name="tar1" class="form-control tarjeta-input" maxlength='4' minlength='4' id="multi_first">
 
-                                               <input type="text" name="tar2" class="form-control tarjeta-input">
+                                               <input type="text" name="tar2" class="form-control tarjeta-input" maxlength='4' minlength='4'>
 
-                                               <input type="text" name="tar3" class="form-control tarjeta-input">
+                                               <input type="text" name="tar3" class="form-control tarjeta-input" maxlength='4' minlength='4'>
 
-                                               <input type="text" name="tar4" class="form-control tarjeta-input">
+                                               <input type="text" name="tar4" class="form-control tarjeta-input" maxlength='4' minlength='4'>
 
-                                               <input data-validate-length-range="16" data-validate-pattern="integer" id="serial" name="serial" required="required" type="hidden">
+                                               <input data-validate-length-range="16" id="serial" name="serial" required="required" type="hidden">
 
                                            </div>
                                        </div>
@@ -133,21 +131,7 @@
                                         </div>
 
 
-                                        <div class="field multi required bad">
-						<label for="multi_first">
-							<span>Multifield</span>
-						</label>
-						<div class="input">
-							<input name="multi1" maxlength="4" id="multi_first" type="text">
-							<input name="multi2" maxlength="4" type="text">
-							<input name="multi3" maxlength="4" type="text">
-							<input name="multi4" maxlength="4" type="text">
-							<input name="multi5" maxlength="4" type="text">
-							<input name="multi6" maxlength="4" type="text">
-							<input data-validate-length-range="24" data-validate-pattern="alphanumeric" id="serial" name="serial" required="required" type="hidden">
-						</div>
-						
-					</div>
+
 
 
                                         <div class="ln_solid"></div>
