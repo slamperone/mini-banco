@@ -55,4 +55,3 @@
     <?php
     $this->load->view('bottom');
     ?>
-

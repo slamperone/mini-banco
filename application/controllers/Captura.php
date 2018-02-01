@@ -3,7 +3,6 @@ class Captura extends CI_Controller {
 
  function __construct(){
    parent::__construct();
-   date_default_timezone_set('America/Mexico_City');
 
  }
    public  function checaSesion(){
@@ -21,49 +20,22 @@ class Captura extends CI_Controller {
   redirect('dashboard', 'refresh');
  }
 
-
-
- function user($queFue){
+ function cliente($queFue){
       if ($this->checaSesion()) {
-        $this->load->model('sacadora');
-        $this->data['roles'] = $this->sacadora->roles();
+        $this->load->model('extractora');
+        $this->data['roles'] = $this->extractora->roles();
         $this->data['que'] = $queFue;
-        $this->load->view('capturaUsuario', $this->data);
+        $this->load->view('capturaCliente', $this->data);
       }
  }
 
-  function aspirante($queFue){
-    $this->data['que'] = $queFue;
-if ($this->checaSesion()) {
-
-  $this->load->view('capturaAspirante', $this->data);
-}
- }
-
-  function curso(){
-if ($this->checaSesion()) {
-  $this->load->view('capturaCurso', $this->data);
-}
- }
-
- function grupo(){
-  if ($this->checaSesion()) {
-  $this->load->view('capturaGrupo', $this->data);
-}
- }
-
- function resultado($cual,$tipo){
-if ($this->checaSesion()) {
-   $this->load->model('sacadora');
-   $this->data['datos'] = $this->sacadora->alumno($cual);
-   $this->data['titulo']= 'Alumnos';
-   $this->data['tipo']= $tipo;
-   if ($cual == "all") {
-    $this->load->view('verAlumnosRes', $this->data);
-   }else{
-    $this->load->view('calificaAlumno', $this->data);
-}
-}
+ function deposito($queFue){
+      if ($this->checaSesion()) {
+        #aqiu debería ir el llamado a la vista que captura los depositos
+        $this->data['titulo']= 'Captura deposito';
+        $this->data['datos'] = array();
+        $this->load->view('dashVacio', $this->data);
+      }
  }
 
 }

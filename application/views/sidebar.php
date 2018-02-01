@@ -8,7 +8,7 @@
                             <ul class="nav side-menu">
                                 <li><a><i class="fa fa-folder-open"></i> Registro <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="<?= site_url('captura/user/new') ?>">Cliente</a></li>
+                                        <li><a href="<?= site_url('captura/cliente/new') ?>">Cliente</a></li>
                                         <li><a href="<?= site_url('captura/deposito/new') ?>">Deposito</a></li>
                                     </ul>
                                 </li>
@@ -16,8 +16,6 @@
                                 <li><a><i class="fa fa-rocket"></i> Consultar <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
                                         <li><a href="<?= site_url('ver/saldo/all') ?>">Detalle Cliente</a></li>
-                                        <!--li><a href="<?= site_url('ver/movimientos/all') ?>">Movimientos</a></li>
-                                        <li><a href="<?= site_url('ver/cuentas/all') ?>">Cuentas</a></li-->
                                     </ul>
                                 </li>
 

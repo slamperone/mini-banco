@@ -27,7 +27,7 @@ var validator = (function($){
 		email_repeat	: 'No coinciden los emails',
 		password_repeat	: 'Las contraseñas no coninciden',
 		repeat			: 'No son iguales',
-		complete		: 'Campo incompleto',
+		complete		: 'Ambos Apellidos',
 		select			: 'Debes elegir una'
 	};
 
