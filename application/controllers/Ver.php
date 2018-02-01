@@ -29,9 +29,8 @@ class Ver extends CI_Controller {
  }
 
 
-     function cliente($quien){
+   function cliente($quien){
     if ($this->checaSesion()) {
-
       if (is_numeric($quien)) {
         $this->data['datos'] = $this->extractora->cliente($quien);
         $this->data['titulo']= 'Detalle del cliente';
@@ -48,11 +47,12 @@ class Ver extends CI_Controller {
 }
 
 
-    function usuario($quien){
+  function usuarios(){
     if ($this->checaSesion()) {
-    $this->data['datos'] = $this->extractora->cuentas($quien);
-    $this->data['titulo']= ($quien == 'all')?'Colaboradores de Bancotote':'Detalle del colaborador';
-    $this->load->view('dashVacio', $this->data);
+
+    $this->data['users'] = $this->extractora->usuarios();
+    $this->data['titulo']= 'Colaboradores de Bancotote';
+    $this->load->view('verUsuarios', $this->data);
     }
 }
 

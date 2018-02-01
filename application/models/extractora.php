@@ -28,6 +28,17 @@ $query = $this->db->get();
    }
  }
 
+ function usuarios(){
+  $this->db->select('*');
+  $this->db->from('usuarios');
+$query = $this->db->get();
+   if($query -> num_rows() >= 1){
+     return $query->result();
+   }else{
+     return false;
+   }
+ }
+
 
 function dashboard (){
 
@@ -36,7 +47,6 @@ function dashboard (){
   $dash['cuantosEjecutivos'] = $this->db->query("select idUsuario from usuarios where rol = 1")->num_rows();
   $dash['mayorDemanda'] = 66;
   $dash['cuantosCajeros'] = $this->db->query("select idUsuario from usuarios where rol = 2")->num_rows();
-
   return $dash;
 
 }#cierra dashboard
@@ -44,9 +54,7 @@ function dashboard (){
 function roles(){
   $this->db->select('idRol,rol');
   $this->db->from('roles');
-
 $query = $this->db->get();
-
    if($query -> num_rows() >= 1){
      return $query->result();
    }else{

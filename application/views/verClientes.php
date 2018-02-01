@@ -26,7 +26,7 @@ $this->load->view('sidebar');
 
 <?php
 if ($datos == ""){
- echo '<h1>Aún no hay clientes registrados</h1>';
+ echo '<h1>Aún no hay registros</h1>';
  exit;
 }else{
 //print_r($quienes);
@@ -65,7 +65,7 @@ echo '<div class="row">
                                              <td class=" ">'.$quien->apellidos.' '.$quien->nombres.' </td>
                                              <td class=" ">'.$quien->mail.'</td>
                                              <td class=" last">'.date("d-m-Y",strtotime(substr($quien->registro,0,10))).'</td>
-                                             <td class=" "><a href="'.base_url('editar/cliente/'.$quien->idCliente).'">editar</a></td>
+                                             <td class=" "><a href="'.base_url('ver/cliente/'.$quien->idCliente).'"><i class="fa fa-pencil"></i></a></td>
                                          </tr>';
                                          }
 
@@ -88,8 +88,8 @@ echo '<div class="row">
                      <br />
 
 <!-- Datatables -->
-     <script src="<?php echo base_url('js/datatables/js/jquery.dataTables.js'); ?>"></script>
-     <script src="<?php echo base_url('js/datatables/tools/js/dataTables.tableTools.js'); ?>"></script>
+     <script src="<?php echo base_url('assets/js/datatables/js/jquery.dataTables.js'); ?>"></script>
+     <script src="<?php echo base_url('assets/js/datatables/tools/js/dataTables.tableTools.js'); ?>"></script>
      <script>
          $(document).ready(function () {
              $('input.tableflat').iCheck({
@@ -114,7 +114,7 @@ echo '<div class="row">
                  "sPaginationType": "full_numbers",
                  "dom": 'T<"clear">lfrtip',
                  "tableTools": {
-                     "sSwfPath": "<?php echo base_url('js/datatables/tools/swf/copy_csv_xls_pdf.swf'); ?>"
+                     "sSwfPath": "<?php echo base_url('assets/js/datatables/tools/swf/copy_csv_xls_pdf.swf'); ?>"
                  }
              });
              $("tfoot input").keyup(function () {
