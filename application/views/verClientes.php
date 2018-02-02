@@ -65,7 +65,7 @@ echo '<div class="row">
                                              <td class=" ">'.$quien->apellidos.' '.$quien->nombres.' </td>
                                              <td class=" ">'.$quien->mail.'</td>
                                              <td class=" last">'.date("d-m-Y",strtotime(substr($quien->registro,0,10))).'</td>
-                                             <td class=" "><a href="'.base_url('ver/cliente/'.$quien->idCliente).'"><i class="fa fa-pencil"></i></a></td>
+                                             <td class=" "><a href="'.base_url('ver/cliente/'.$quien->idCliente.'/edit').'"><i class="fa fa-pencil"></i></a></td>
                                          </tr>';
                                          }
 

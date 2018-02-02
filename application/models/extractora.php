@@ -3,9 +3,8 @@ Class Extractora extends CI_Model{
 
  function cliente($cual){
   $this->db->select('*');
-  $this->db->from('usuarios');
-  $this->db->where('idUsuario',$cual);
-  $this->db->join('roles','roles.idRol = usuarios.rol');
+  $this->db->from('clientes');
+  $this->db->where('idCliente',$cual);
   $this -> db -> limit(1);
 
 $query = $this->db->get();

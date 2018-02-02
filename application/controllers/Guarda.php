@@ -42,7 +42,7 @@ function __construct(){
 
  			case '3':
  			# pasó
- 			redirect('ver/usuario/all', 'refresh');
+ 			redirect('ver/usuario/all/list', 'refresh');
  				break;
 
  			case '4':
@@ -87,12 +87,40 @@ function __construct(){
 
   			case '4':
   			# error desconocido
-  			redirect('captura/cliente/3', 'refresh');
+  			redirect('captura/cliente/'.$this->input->post('id').'3', 'refresh');
   				break;
 
   		}
 
   	}#cierra cliente
+
+    function clienteEditado(){
+      #concateno el numero de Tarjeta y guardo en var
+      $tarjeta = $this->input->post('tar1').$this->input->post('tar2').$this->input->post('tar3').$this->input->post('tar4');
+      #encripto numero de tarjeta concatenado
+      $tarjetaEncode = $this->encrypt->encode($tarjeta);
+
+         #defino el catalogo de variables
+   		 	$data['nombres'] = $this->input->post('nombres');
+   		 	$data['apellidos'] = $this->input->post('apellidos');
+   		 	$data['sexo'] = $this->input->post('sexo');
+   		 	$data['mail'] = $this->input->post('mail');
+        $data['tarjeta'] = $tarjetaEncode;
+   		 	$data['telefono'] = $this->input->post('tel');
+   		 	$data['idCliente'] = $this->input->post('id');
+
+   		 	switch ($this->archivadora->clienteEditado($data)) {
+    			case '1':
+    			# pasó
+    			//redirect('ver/cliente/all/list', 'refresh');
+    				break;
+    			case '2':
+    			# error desconocido
+    			//redirect('ver/cliente/'.$this->input->post('id').'/3', 'refresh');
+    				break;
+    		}
+
+    	}#cierra cliente
 
 
  }#cierra la clase

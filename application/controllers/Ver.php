@@ -29,12 +29,13 @@ class Ver extends CI_Controller {
  }
 
 
-   function cliente($quien){
-    if ($this->checaSesion()) {
+   function cliente($quien,$que){
+    if ($this->checaSesion()) {#si esta logeado
+      $this->data['que'] = $que;
       if (is_numeric($quien)) {
-        $this->data['datos'] = $this->extractora->cliente($quien);
+        $this->data['quien'] = $this->extractora->cliente($quien);
         $this->data['titulo']= 'Detalle del cliente';
-        $this->load->view('verClientes', $this->data);
+        $this->load->view('editaCliente', $this->data);
       }else if ($quien == 'all'){
         $this->data['datos'] = $this->extractora->clientes();
         $this->data['titulo']= 'Nuestros clientes';
@@ -44,7 +45,7 @@ class Ver extends CI_Controller {
       }
 
     }
-}
+}#termina cliente
 
 
   function usuarios(){
@@ -54,7 +55,7 @@ class Ver extends CI_Controller {
     $this->data['titulo']= 'Colaboradores de Bancotote';
     $this->load->view('verUsuarios', $this->data);
     }
-}
+}#cierra usuarios
 
 
 }#cierra la clase

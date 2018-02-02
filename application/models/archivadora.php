@@ -44,8 +44,20 @@ Class Archivadora extends CI_Model{
 						exit;
 				}
 			}
-			}#cierra usuario
+		}#cierra cliente
 
+		function clienteEditado($data){
+			#establezco condicion
+				$this->db->where('idCliente', $data['idCliente']);
+			#si el update se ejecuta correctamente...
+				if ($this->db->update('clientes', $data)){
+						return '1';
+						exit;
+				}else{
+						return '2';
+						exit;
+				}
+			}#cierra cliente editado
 
 
 	}#cierra clase
