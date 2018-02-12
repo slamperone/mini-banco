@@ -112,11 +112,11 @@ function __construct(){
    		 	switch ($this->archivadora->clienteEditado($data)) {
     			case '1':
     			# pasó
-    			//redirect('ver/cliente/all/list', 'refresh');
+    			redirect('ver/cliente/all/list', 'refresh');
     				break;
     			case '2':
     			# error desconocido
-    			//redirect('ver/cliente/'.$this->input->post('id').'/3', 'refresh');
+    			redirect('ver/cliente/'.$this->input->post('id').'/3', 'refresh');
     				break;
     		}
 

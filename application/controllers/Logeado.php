@@ -21,9 +21,13 @@ class Logeado extends CI_Controller {
 
      if($this->form_validation->run() == TRUE){#si el front validó bien...
        $pin = $this->input->post('pin');
+
          if ($this->check_database($pin)==true) {#si el email & pin son correctos...
            redirect('dashboard', 'refresh');
-            }
+         }else{
+           $this->load->view('login');
+         }
+
      }else{
        $this->load->view('login');
      }
@@ -42,6 +46,7 @@ class Logeado extends CI_Controller {
 
 #si encuentra el mail del usuario devuelve un array con sus datos, entre ellos el pin encriptado para comparar
    if($result){ #si encontró el mail...
+     #sirve para guardar el resultado de la valdación
 
      $pinFuente = $this->encrypt->decode($result[0]->pin);#desecncripto el pin que viene de la BDD
 
@@ -58,14 +63,19 @@ class Logeado extends CI_Controller {
                 $this->session->set_userdata('logged_in', $sess_array);
               }
               return TRUE;
+              exit;
+
 
             }else{
               $this->form_validation->set_message('check_database', 'PIN incorrecto, reintente');
               return FALSE;
+              exit;
+
             }
    }else{
      $this->form_validation->set_message('check_database', 'Datos inválidos, reintente');
      return FALSE;
+     exit;
    }
  }
 }
