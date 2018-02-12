@@ -1,21 +1,21 @@
 # reto-ingenia
 Reto técnico proceso ingenia
 
-##Sistema mini banco
+## Sistema mini banco
   **Registra & edita**
-  -Usuarios
-  -Clientes
+  * -Usuarios
+  * -Clientes
 
-##Requerimientos
--Php5.6.x
--mcrypt php extension
--MySql 5.x
--Codeigniter 3.1.x
--Mod_rewrite on
+## Requerimientos
+* -Php5.6.x
+* -mcrypt php extension
+* -MySql 5.x
+* -Codeigniter 3.1.x
+* -Mod_rewrite on
 
-##Super user
--u jhonny@apple.com
--p 404050
+## Super user
+* -u jhonny@apple.com
+* -p 404050
 
 ![Pantalla Login](http://develupme.com/login.png)
 
