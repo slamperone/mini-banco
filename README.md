@@ -1,6 +1,3 @@
-# reto-ingenia
-Reto técnico proceso ingenia
-
 ## Sistema mini banco
   **Registra & edita**
   * -Usuarios
